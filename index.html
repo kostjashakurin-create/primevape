@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeVape — Стильный каталог вейпов и электронных испарителей</title>
+    <!-- SEO Мета-теги для Яндекса и Google -->
+    <meta name="description" content="Официальный сайт-витрина PrimeVape. Ознакомьтесь с ассортиментом качественных вейпов, под-систем и аксессуаров. Информация о наличии и адреса магазинов.">
+    <meta name="keywords" content="PrimeVape, вейп шоп, под системы, электронные сигареты, каталог вейпов, жижа для вейпа">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* Общие стили и градиентный фон */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #2e0854 0%, #120024 40%, #4a004a 70%, #ff4500 100%);
+            --primary-purple: #8a2be2;
+            --accent-orange: #ff6600;
+            --neon-blue: #00d2ff;
+            --neon-green: #39ff14;
+            --neon-red: #ff0055;
+            --neon-yellow: #ffee00;
+            --text-light: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Шапка сайта */
+        header {
+            background: rgba(18, 0, 36, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--primary-purple), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Главный баннер */
+        .hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-orange), var(--primary-purple));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+        }
+
+        /* Секция каталога */
+        .catalog {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .catalog h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .catalog h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Карточки товаров с разноцветными неоновыми акцентами */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Разные рамки для карточек согласно палитре */
+        .card.blue { border-bottom: 4px solid var(--neon-blue); }
+        .card.purple { border-bottom: 4px solid var(--primary-purple); }
+        .card.red { border-bottom: 4px solid var(--neon-red); }
+        .card.green { border-bottom: 4px solid var(--neon-green); }
+        .card.yellow { border-bottom: 4px solid var(--neon-yellow); }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
+        }
+        
+        .card.blue:hover { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2); }
+        .card.purple:hover { box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2); }
+        .card.red:hover { box-shadow: 0 5px 15px rgba(255, 0, 85, 0.2); }
+        .card.green:hover { box-shadow: 0 5px 15px rgba(57, 255, 20, 0.2); }
+        .card.yellow:hover { box-shadow: 0 5px 15px rgba(255, 238, 0, 0.2); }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+            height: 44px;
+            overflow: hidden;
+        }
+
+        /* Замена кнопки купить */
+        .info-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--accent-orange);
+            color: var(--text-light);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .info-btn:hover {
+            background: var(--accent-orange);
+            color: #000;
+        }
+
+        /* О нас / Инфо для поисковиков (SEO-текст) */
+        .about {
+            background: rgba(18, 0, 36, 0.9);
+            padding: 60px 5%;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 102, 0, 0.3);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 { margin-bottom: 20px; }
+        .about p { color: #bbb; margin-bottom: 15px; }
+
+        /* Подвал */
+        footer {
+            background: #0b0016;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #666;
+            border-top: 2px solid var(--primary-purple);
+        }
+
+        /* Дисклеймер 18+ */
+        .age-disclaimer {
+            background: #000;
+            color: #ff0055;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Обязательное предупреждение для вейп-тематики -->
+    <div class="age-disclaimer">
+        ПРОДУКЦИЯ НА САЙТЕ ПРЕДНАЗНАЧЕНА СТРОГО ДЛЯ ЛИЦ СТАРШЕ 18 ЛЕТ. НИКОТИН ВЫЗЫВАЕТ ЗАВИСИМОСТЬ.
+    </div>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">PrimeVape</div>
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#about">О нас</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный блок -->
+    <section class="hero">
+        <h1>Стиль и Вкус в каждом вдохе</h1>
+        <p>Добро пожаловать в PrimeVape — современную онлайн-витрину девайсов и аксессуаров. Мы собрали лучшие тренды индустрии в одном месте для ознакомления.</p>
+        <a href="#catalog" class="cta-btn">Перейти к обзору</a>
+    </section>
+
+    <!-- Каталог (без цен и корзин) -->
+    <section class="catalog" id="catalog">
+        <h2>Наш Ассортимент</h2>
+        <div class="grid">
+            
+            <!-- Товар 1 (Синий акцент) -->
+            <div class="card blue">
+                <div class="product-img">POD-Система Prime Neon</div>
+                <h3>Prime Neon Pod</h3>
+                <p>Компактное устройство с регулировкой мощности и яркой вкусопередачей.</p>
+                <a href="#contacts" class="info-btn">Узнать наличие</a>
+            </div>
+
+            <!-- Товар 2 (Фиолетовый акцент) -->
+            <div class="card purple">
+                <div class="product-img">Мод CyberPulse</div>
+                <h3>CyberPulse Mod</h3>
+                <p>Мощный бокс-мод для ценителей густого пара и автономности.</p>
+                <a href="#contacts" class="info-btn">Узнать наличие</a>
+            </div>
+
+            <!-- Товар 3 (Красный акцент) -->
+            <div class="card red">
+                <div class="product-img">Испарители X-Coil</div>
+                <h3>X-Coil Серия</h3>
+                <p>Премиальные сетчатые испарители для максимального раскрытия вкуса.</p>
+                <a href="#contacts" class="info-btn">Узнать наличие</a>
+            </div>
+
+            <!-- Товар 4 (Зеленый акцент) -->
+            <div class="card green">
+                <div class="product-img">Жидкость Volt Fruit</div>
+                <h3>Volt Fruit Mix</h3>
+                <p>Линейка освежающих фруктово-ягодных миксов без содержания никотина.</p>
+                <a href="#contacts" class="info-btn">Узнать наличие</a>
+            </div>
+
+            <!-- Товар 5 (Желтый акцент) -->
+            <div class="card yellow">
+                <div class="product-img">Картридж Prime One</div>
+                <h3>Картридж 0.8 Ом</h3>
+                <p>Сменные резервуары с улучшенной защитой от протечек.</p>
+                <a href="#contacts" class="info-btn">Узнать наличие</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEO-блок (О нас) -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>О бренде PrimeVape</h2>
+            <p>Сайт PrimeVape функционирует исключительно как интернет-витрина и информационный ресурс. Мы не осуществляем дистанционную продажу, доставку или онлайн-оплату никотиносодержащей продукции в соответствии с действующим законодательством.</p>
+            <p>Наша цель — предоставить пользователям подробный, структурированный каталог актуальных вейп-систем, технических характеристик и новинок рынка. Вы всегда можете ознакомиться со свойствами интересующего вас товара перед посещением розничного магазина.</p>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="about" id="contacts" style="background: none; border: none;">
+        <div class="about-content">
+            <h2>Где нас найти?</h2>
+            <p>По вопросам наличия девайсов, а также для консультаций обращайтесь по телефону или посетите наш шоу-рум:</p>
+            <p style="font-size: 20px; color: var(--accent-orange); font-weight: bold; margin: 15px 0;">+7 (996) 974-14-59</p>
+            <p>г. Можайск, Поселок Строитель, д. 33 (Ежедневно с 10:00 до 21:00)</p>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 PrimeVape. Все права защищены. Сайт носит исключительно информационный характер и не является публичной офертой.</p>
+    </footer>
+
+</body>
+</html>
